@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script type="text/javascript"    src="../asset/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3>todo-list-model learn</h3>
+        <hr>
+    </div>
+    <div id="myapp">
+        <form v-on:submit.prevent="addnewtodo">
+            <label for="addnewtodo"></label>
+            <input v-model="todotext" id="addnewtodo" type="text" placeholder="add what you need to do">
+            <button>addnewtodo</button>
+        </form>
+        <ul>
+            <li v-for="(todo,index) in todos" 
+            v-bind:todos=todos
+             >
+             <span>{{todo.id}}</span>
+             <span>{{todo.todo}}</span>
+             <button v-on:click="todos.splice(index,1)">remove</button>
+            </li>
+        </ul>
+    </div>
+
+
+</body>
+
+<script type="text/javascript">
+    Vue.component("todo-item",{
+        template:`` ,
+        props:['title']
+    })
+  new Vue({
+
+        el: "#myapp",
+        data:{
+            todotext: "",
+            todos: [{
+                    id: 1,
+                    todo: "todaya to learn vue"
+                },
+                {
+                    id: 2,
+                    todo: "this id the second todo"
+                }
+
+            ],
+            todoid: 3
+        },
+        methods:{
+            addnewtodo(){
+                       let arr = this.todos;
+                       arr.push({
+                           id:this.todoid++,
+                           todo:this.todotext
+                       })
+                       this.todotext='';
+                       this.todos=arr
+                       
+            }
+        }
+    })
+</script>
+
+</html>

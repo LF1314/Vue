@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue-on 的一个实例</h2>
+        <hr>
+    <h3>
+        本场比赛得分：<span v-text="grade"></span>
+    </h3>
+    <p><button v-on:click="addgrade">addgrade</button>
+      <button @click="delgrade">delgrade</button>
+     </p>
+     <input type="text" @keyup.13="onenter" v-model="addother">
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            grade:0,
+            addother:0
+        },
+        methods:{
+            addgrade:function(){
+               this.grade++;
+            },
+            delgrade:function(){
+                this.grade--;
+            }
+            ,
+            onenter:function(){
+                this.grade = this.grade + parseInt(this.addother)
+            }
+        }
+    })
+
+
+</script>

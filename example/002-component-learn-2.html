@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue-compoment的一个实例</h2>
+        <hr>
+    <h3>
+        {{message}}
+    </h3>
+    <first-item the-here="mess"></first-item>
+    </div>
+    <div id="app3">
+         <first-item the-here="mess"></first-item>
+        <inneritem here="England"></inneritem>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    Vue.component("first-item",{
+        template:"<h4>全局的component组件{{theHere}}</h4>",
+        props:['theHere']
+      })
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            message:"welcome to vue2.0!!!"
+             }
+    })
+    let app2=new Vue({
+        el:"#app3",
+        data:{
+               message:"china"
+        },
+       components:{
+           inneritem:{
+               template:`<h4>where pada from {{here}}</h4>`,
+               props:['here']
+                     }
+       }
+    })
+
+
+</script>

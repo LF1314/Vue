@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue-set </h2>
+        <p>引用外部数据需要使用v-set进行同步修改</p>
+        <hr>
+    <h3>
+        {{message}}
+    </h3>
+    <p>引用外部数值</p>
+    <ul>
+        <li v-for="num in vuearr">{{num}}</li>
+    </ul>
+    <button onclick="add()">cahngearr use function</button>
+    <button onclick="add2()">changearr ues v-set</button>
+    <hr>
+
+    <div>
+        <p>use v-set change object data</p>
+         <h3>{{outobj.name}}</h3>
+         <h3>{{outobj.count}}</h3>
+         <button onclick="cahngename()">changename</button>
+         <button onclick="changeage()">changeage</button>
+    </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+//自定义函数改变数组的数据页面中的列表渲染的数据不回发生改变
+function add(){
+   arr[1]='usefunction';
+   console.log(arr)
+}
+//使用vue中的全局api v-set
+function add2(){
+    Vue.set(app.vuearr,1,"use v-set");
+    console.log(arr);
+}
+//改变对象中的相应数值
+ function cahngename(){
+     Vue.set(app.outobj,"name","xundongwei")
+ }
+ function changeage()
+{
+    Vue.set(out,"count",21)
+}  
+    var arr = ['dd',"ee",3,5]
+    var out = {
+        count:22,
+        name:"ming"
+
+    }
+
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            message:"welcome to vue2.0!!!",
+            vuearr: arr,
+            outobj:out
+        },
+        methods:{
+              
+        }
+        
+    })
+
+
+</script>

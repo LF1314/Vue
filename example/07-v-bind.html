@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>v-bind实例</div>
+    <hr>
+    <div id="app7">
+       <p v-bind:class="classa">1.1使用v-bind绑定class</p>
+       <p :class="{classb:isok}">1.2使用v-bind实现类的绑定判断</p>
+       <input type="checkbox" id="isok" v-model="isok">
+       <label for="isok">istrue={{isok}}</label>
+       <p :class='isok ? classa : classb' >使用三目运算符来进行类的绑定</p>
+       <p :class="[classa,classb]">使用bind进行class的数组绑定数据</p>
+       <p :style="object">使用bind来进行绑定一个对象</p>
+       <p :style = "{color:color,fontSize:font}">使用bind绑定一个class对象</p>
+    </div>
+</body>
+</html>
+<style>
+    .classA{
+        font-size: 22px;
+        color: red;
+
+    }
+    .classb{
+        font-size: 12rpx;
+        color: yellow;
+    }
+
+</style>
+<script type="text/javascript">
+const app = new Vue({
+    el:"#app7",
+    data:{
+        classa:"classA",
+        classb:"classb",
+        isok:false,
+        color:'yellow',
+        font:"24px",
+        object:{
+            color:"red",
+            fonSize:22
+        }
+    }
+})
+</script>

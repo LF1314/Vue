@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if,v-show-learn</title>
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+</head>
+<body>
+    <div id="app2">
+        <h4>
+            {{message}}
+        </h4>
+        <hr>
+       <div>
+           <p v-if="islogin">welcome come to person center </p>
+           <p v-else>please login</p>
+           <div v-show="islogin">
+               <img src="../asset/image/02-v-if.png" alt="">
+           </div>
+           <button v-if="islogin" @click="changeislogin">loginout</button>
+           <button v-else @click="changeislogin">loginin</button>
+       </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+  let app2 = new Vue({
+      el:"#app2",
+      data:{
+          message:"person center",
+          islogin:false
+
+      },
+      methods:{
+          changeislogin:function(){
+              app2.islogin=!app2.islogin;
+          }
+
+      }
+  })
+</script>

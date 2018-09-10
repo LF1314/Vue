@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue-template学习实例</h2>
+        <hr>
+    <h3>
+        {{message}}
+    </h3>
+    </div>
+    <div>
+        <template id="app3" style="color: yellow">
+                <h2>template 标签模板</h2>
+        </template>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            message:"welcome to vue2.0!!!"
+        },
+        // template:`<h2 style="color:red">template 选项标签模板</h2>`
+
+        template:"#app3",
+
+    })
+
+
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue-model 的一个实例</h2>
+        <hr>
+    <h3 v-text="message" >
+       
+    </h3>
+    <input type="text" @keyup.13="changemessgae" v-model="message2">
+    <br>
+    <input type="text" v-model="message">
+    <p>输入框的数据绑定</p>
+    <hr>
+    <span>{{data1}}</span>
+    <br>
+     v-model正常绑定：<input type="text" v-model="data1">
+     <br>
+     v-model.lazy: <input type="text" v-model.lazy="data1">
+     <br>
+     v-model.tirm: <input type="text"v-model.trim="data1">
+     <br>
+     v-model.number: <input type="text" v-model.number="data1">
+     <br>
+     <p>文本域的数据绑定</p>
+     <hr>
+     <textarea  cols="30" rows="10" v-model="data1"></textarea>
+     <p>复选框绑定一个值</p>
+     <hr>
+     <input type="checkbox" id="check" v-model="istrue">
+     <label for="check">{{istrue}}</label>
+     <p>复选框绑定一个数组</p>
+     <hr>
+     <input type="checkbox" id="check" v-model="istrue1" value="mingming">
+     <label for="check">mingming</label>
+     <input type="checkbox" id="check" v-model="istrue1" value="hong">
+     <label for="check">hong</label>
+     <input type="checkbox" id="check" v-model="istrue1" value="qingqing">
+     <label for="check">qingqing</label>
+     <p>{{istrue1}}</p>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            message:"welcome to vue2.0!!!",
+            message2:"nothing",
+            data1:"hello",
+            istrue:false,
+            istrue1:[],
+        },
+        methods:{
+            changemessgae:function(){
+                this.message = this.message2
+            }
+        }
+    })
+
+
+</script>

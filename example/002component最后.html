@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue-compoment-多个组件如何根据绑定不同的值来进行映入不同的组件的一个实例</h2>
+        <hr>
+    <h3>
+        {{message}}
+    </h3>
+       <component v-bind:is="who"></component>
+       <button @click="changecomonent">changecomonent</button>
+    </div>
+   
+</body>
+</html>
+<script type="text/javascript">
+
+  var componentA = {
+      template:`<h2 style="color:blue;font-size:13px"> this is componentA</h2>`
+  }
+ 
+ var componentB = {
+     template:`<h2 style="color:red;font-size:16px">this is componentB</h2>`
+ }
+ var componentC = {
+     template:`<h2 style="color:yellow;font-size:18px">this is componentC</h2>`
+ }
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            message:"welcome to vue2.0!!!",
+            who:"componentB"
+        },
+        components:{
+           "componentA":componentA,
+           "componentB":componentB,
+           "componentC":componentC   
+       },
+       methods:{
+           changecomonent:function(){
+               if(this.who=="componentA"){
+                   this.who = `componentB`
+               }else if(this.who =="componentB"){
+                   this.who ="componentC"
+               }else{
+                   this.who = "componentA"
+               }
+           }
+       }
+    })
+  
+
+
+</script>

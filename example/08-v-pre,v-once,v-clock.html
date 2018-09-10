@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue-once,v-pre,v-cloak 的一个实例</h2>
+        <hr>
+         <h4 v-pre>{{message}} 使用v-pre显示原型数据</h4>
+    <div v-once>{{message}} </div>
+    <input type="text" id="data" v-model="message">
+    <label for="data">数据绑定上面数据只绑定一次</label>
+    <div>{{message}}</div>
+    <div>v-cloak 绑定的数据只有在页面渲染完毕后才会加载</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            message:"welcome to vue2.0!!!"
+        }
+    })
+
+
+</script>

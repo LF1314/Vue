@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue-compoment的一个实例</h2>
+        <hr>
+    <h3>
+        {{message}}
+    </h3>
+    <first-item></first-item>
+    </div>
+    <div id="app3">
+        <first-item></first-item>
+        <inneritem></inneritem>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    Vue.component("first-item",{
+
+        template:"<h4>全局的component组件</h4>"
+
+    })
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            message:"welcome to vue2.0!!!"
+        }
+    })
+    let app2=new Vue({
+        el:"#app3",
+       components:{
+           inneritem:{
+               template:`<h4>内部component组件</h4>`
+           }
+       }
+    })
+
+
+</script>

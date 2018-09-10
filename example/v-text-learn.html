@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue 的一个实例</h2>
+        <hr>
+    <h3 v-html="message">
+      
+    </h3>
+    <p v-text="text"></p>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            text:"v-text inner content",
+            message:"<h2>welcome to vue2.0!!!</h2>"
+        }
+    })
+
+
+</script>

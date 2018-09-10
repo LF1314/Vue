@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>vue全局api学习之v-extend learn</h2>
+        <hr>
+        
+    <h3>
+        <author></author>
+       
+    </h3>
+   
+    <div id="author"></div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+ let myauthor = Vue.extend({
+     template:'<p><a :href="authorurl">{{autorname}}</a></p>',
+     data:function(){
+         return{
+             autorname:"xundongwei",
+             authorurl:"https://www.baidu.com"
+         }
+     }
+ })
+ //进行实例扩展的挂载，否则在页面中无法使用
+  new myauthor().$mount("#author")
+ 
+
+</script>

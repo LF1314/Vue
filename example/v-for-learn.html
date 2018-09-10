@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for,learn</title>
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+</head>
+<body>
+    <div id="app3">
+        <h3>use v-for to do numbers and object sort</h3>
+        <hr>
+        <p>use v-for show the numbers sort</p>
+        <ul>
+           
+            <li v-for="item in newitems">
+                {{item}}
+            </li>
+        </ul>
+        <p>use v-for show the object sort </p>
+        <ul>
+            <li v-for="(book,index) in newbooks">
+                {{index + 1}}
+                <span>{{book.book1}}:</span>
+                <span>{{book.number}}</span>
+            </li>
+        </ul>
+    </div>
+
+
+    
+</body>
+</html>
+<script type="text/javascript">
+    let app3 = new Vue({
+      el:"#app3",
+      data:{
+        items:[33,22,44,1,44,88,55,66,7,5],
+        books:[
+            {book1:"山海津",number:22},
+            {book1:"四书",number:27},
+            {book1:"中庸",number:2},
+            {book1:"大学",number:29}
+        ]
+      
+      },
+      computed:{
+      newitems:function(){
+          return this.items.sort(sortnum)
+      },
+      newbooks:function(){
+          return this.books.sort(aboutnumber("number"))
+      }
+        
+    }
+      ,
+      
+      methods:{
+
+      }
+    })
+    //实现对数组中的数据进行实现大小进行排序
+    function sortnum(a,b){
+        return a-b;
+    }                                                                                                                                
+    //实现根据对象中的书本的数量进行升序排列
+    function aboutnumber(number){
+       return function(object1,object2){
+           let value1 = object1.number;
+           let value2 = object2.number;
+           return value1-value2;
+       }
+    }
+</script>

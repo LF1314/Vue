@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../asset/js/vue.js"></script>
+    <title>vuedemmo</title>
+</head>
+<body>
+    <div id="myapp">
+        <h2>v-directive自定义指令学习</h2>
+        <hr>
+    <h3>
+        {{message}}
+    </h3>
+    <div v-xundongwei="classes">{{num}}</div>
+    <button @click="add">addnum</button>
+    <button @click="delbind">解除绑定</button>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+      //用directive实例化一个自定义指令
+     Vue.directive("xundongwei",{
+         bind:function(el,binding){
+             console.log(el);
+             console.log(binding);
+             el.style.color=binding.value.color;
+             el.style.fontSize=binding.value.fontSize;
+         },
+         unbind:function(){
+             console.log("解绑成功！")
+         }
+     })
+    let app = new Vue({
+        el:"#myapp",
+        data:{
+            message:"welcome to vue2.0 API learn!!!",
+            num:0,
+            classes:{
+                color:"yellow",
+                fontSize:"22px"
+            }
+        },
+        methods:{
+            add:function(){
+                app.num += 1;
+            },
+            //销毁vue实例
+            delbind(){
+      console.log("0000")
+      app.$destroy()
+  }
+        }
+    })
+
+
+</script>
